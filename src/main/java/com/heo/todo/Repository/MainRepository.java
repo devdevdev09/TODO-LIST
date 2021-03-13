@@ -1,4 +1,4 @@
-package com.heo.todo.Repository;
+package com.heo.todo.repository;
 
 public class MainRepository {
     
