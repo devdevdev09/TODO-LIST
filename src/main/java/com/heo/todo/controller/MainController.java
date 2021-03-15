@@ -8,8 +8,10 @@ import com.heo.todo.service.MainService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class MainController {
 
     MainService mainService;
@@ -21,15 +23,16 @@ public class MainController {
     @GetMapping("/main")
     public MainEntity getMain(Long id){
         Optional<MainEntity> result = mainService.findById(id);
+
+        MainEntity main = new MainEntity();
+        main.setId(0L);
         
-        return result.get();
+        return result.orElse(main);
     }
 
     @PostMapping("/main")
-    public Long save(){
-        MainEntity main = new MainEntity();
-
-        MainEntity result = mainService.save(main);
+    public Long save(@RequestBody MainEntity entity){
+        MainEntity result = mainService.save(entity);
         
         return result.getId();
     }
