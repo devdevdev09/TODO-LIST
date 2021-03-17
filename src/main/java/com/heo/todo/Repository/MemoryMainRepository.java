@@ -15,8 +15,8 @@ public class MemoryMainRepository implements MainRepository{
     
     @Override
     public MainEntity save(MainEntity main) {
-        main.setId(++sequence);
-        list.put(main.getId(), main);
+        // main.setId(++sequence);
+        // list.put(main.getId(), main);
         return main;
     }    
 
