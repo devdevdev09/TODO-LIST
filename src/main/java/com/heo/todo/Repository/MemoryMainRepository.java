@@ -21,6 +21,20 @@ public class MemoryMainRepository implements MainRepository{
     }    
 
     @Override
+    public MainEntity replace(MainEntity main) {
+        main.setId(++sequence);
+        list.put(main.getId(), main);
+        return main;
+    }    
+
+    @Override
+    public MainEntity update(MainEntity main) {
+        main.setId(++sequence);
+        list.put(main.getId(), main);
+        return main;
+    }    
+
+    @Override
     public Optional<MainEntity> findById(Long id) {
         return Optional.ofNullable(list.get(id));
     }
