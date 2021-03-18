@@ -25,3 +25,7 @@
 - 인터페이스 설계
 - 테스트 작성
 - DOCS 작성
+
+### 2021-03-18
+- vscode lombok 미적용
+    - lombok extensions 설치 필요함

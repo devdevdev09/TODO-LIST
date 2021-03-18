@@ -25,7 +25,7 @@ public class MainController {
         Optional<MainEntity> result = mainService.findById(id);
 
         MainEntity main = new MainEntity();
-        // main.setId(0L);
+        main.setId(0L);
         
         return result.orElse(main);
     }
@@ -34,8 +34,7 @@ public class MainController {
     public Long save(@RequestBody MainEntity entity){
         MainEntity result = mainService.save(entity);
         
-        // return result.getId();
-        return 0L;
+        return result.getId();
     }
     
 }
