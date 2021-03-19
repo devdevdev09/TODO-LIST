@@ -11,26 +11,31 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class MemoryMainRepository implements MainRepository{
     private static Map<Long, MainEntity> list = new HashMap<>();
-    private static long sequence = 0L;
+    private static Long sequence = 0L;
     
     @Override
     public MainEntity save(MainEntity main) {
         main.setId(++sequence);
         list.put(main.getId(), main);
+        
         return main;
     }    
 
     @Override
     public MainEntity replace(MainEntity main) {
-        main.setId(++sequence);
-        list.put(main.getId(), main);
+        Long seq = main.getId();
+        list.replace(seq, main);
+
         return main;
     }    
 
+    // @todo...
+    // update 처리
     @Override
     public MainEntity update(MainEntity main) {
         main.setId(++sequence);
         list.put(main.getId(), main);
+        
         return main;
     }    
 
