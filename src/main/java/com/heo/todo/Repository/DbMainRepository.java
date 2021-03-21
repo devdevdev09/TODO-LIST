@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class DbMainRepository implements MainRepository{
     private static Map<Long, MainEntity> list = new HashMap<>();
-    private static Long sequence = 0L;
     
     @Override
     public MainEntity save(MainEntity main) {

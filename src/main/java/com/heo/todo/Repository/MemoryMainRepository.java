@@ -29,11 +29,16 @@ public class MemoryMainRepository implements MainRepository{
         return main;
     }    
 
-    // @todo...
     @Override
     public MainEntity update(MainEntity main) {
-        main.setId(++sequence);
-        list.put(main.getId(), main);
+        Long target = main.getId();
+
+        if(list.get(target) != null){
+            list.put(target, main);
+        }else{
+            main.setId(++sequence);
+            list.put(main.getId(), main);
+        }
         
         return main;
     }    
