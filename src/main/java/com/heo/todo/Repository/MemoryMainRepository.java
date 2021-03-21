@@ -8,7 +8,7 @@ import com.heo.todo.entity.MainEntity;
 
 import org.springframework.stereotype.Repository;
 
-@Repository
+// @Repository
 public class MemoryMainRepository implements MainRepository{
     private static Map<Long, MainEntity> list = new HashMap<>();
     private static Long sequence = 0L;
