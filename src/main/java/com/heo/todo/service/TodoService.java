@@ -15,8 +15,7 @@ public interface TodoService {
     // 2. 지속알림(remind)
     // 3. 완성알림X
 
+    // 아주 뒤로..........일단 개인용
     // 회원관리
     // 1. OAuth 2.0
-
-    // etc. 회원 관리, 알림 관리
 }
