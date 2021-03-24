@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 @Service
 public interface TodoService {
     // 1. 초기 등록
+        // 등록방법, 단순 한개씩, 여러개 동시, 업로드 등등?
+        // 기존거 복사 기능?
     // 2. 중간 업데이트
     // 3. 완료 처리
     // 4. 기타 상태 처리(지연 업데이트 등)
