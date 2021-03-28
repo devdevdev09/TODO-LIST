@@ -1,5 +1,7 @@
 package com.heo.todo.service;
 
+import java.util.Optional;
+
 import com.heo.todo.entity.Todo;
 
 import org.springframework.stereotype.Service;
@@ -7,11 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public interface TodoService {
 
-    public Todo findById(Long id);
+    public Optional<Todo> findById(Long id);
 
-    public boolean insert(Todo todo);
+    public Todo save(Todo todo);
 
-    public boolean update(Todo todo);
+    public Todo update(Todo todo);
     // ~ 03.31
     // 1. 초기 등록
         // 등록방법, 단순 한개씩, 여러개 동시, 업로드 등등?
