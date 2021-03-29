@@ -6,8 +6,6 @@ import java.util.Optional;
 
 import com.heo.todo.entity.MainEntity;
 
-import org.springframework.stereotype.Repository;
-
 // @Repository
 public class MemoryMainRepository implements MainRepository{
     private static Map<Long, MainEntity> list = new HashMap<>();
