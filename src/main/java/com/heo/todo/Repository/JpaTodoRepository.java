@@ -7,6 +7,9 @@ import javax.persistence.EntityManager;
 
 import com.heo.todo.entity.Todo;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class JpaTodoRepository implements TodoRepository {
 
     // private final EntityManager em;
