@@ -20,8 +20,7 @@ public class TodoServiceImpl implements TodoService{
 
     @Override
     public Optional<Todo> findById(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        return todoRepository.findById(id);
     }
 
     @Override

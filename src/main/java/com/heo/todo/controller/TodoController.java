@@ -15,7 +15,7 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-    @GetMapping("/testtodo")
+    @GetMapping("/test/insert")
     public void getTest(){
         Todo todo = new Todo();
         todo.setName("test");
@@ -23,6 +23,14 @@ public class TodoController {
         Todo result = todoService.save(todo);
 
         System.out.println(todo);
+        System.out.println(result);
+    }
+
+
+    @GetMapping("/test/select")
+    public void getTest2(){
+        Todo result = todoService.findById(1L).get();
+
         System.out.println(result);
     }
 }
