@@ -19,6 +19,7 @@ public class JpaTodoRepositoryTest {
     @Autowired
     SpringDataJpaTodoRepository repository;
 
+    //Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TODO" not found; SQL statement:
     @Test
     public void save(){
         Todo todo = new Todo();
