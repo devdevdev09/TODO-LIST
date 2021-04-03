@@ -33,4 +33,15 @@ public class TodoController {
 
         System.out.println(result);
     }
+
+    @GetMapping("/test/update")
+    public void getTest3(){
+
+        Todo todo = new Todo();
+        todo.setId(33L);
+        todo.setName("testUPDATE");
+        Todo result = todoService.save(todo);
+
+        System.out.println(result);
+    }
 }

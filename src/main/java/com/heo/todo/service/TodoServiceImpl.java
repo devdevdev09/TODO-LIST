@@ -3,9 +3,7 @@ package com.heo.todo.service;
 import java.util.Optional;
 
 import com.heo.todo.entity.Todo;
-import com.heo.todo.repository.JpaTodoRepository;
 import com.heo.todo.repository.SpringDataJpaTodoRepository;
-import com.heo.todo.repository.TodoRepository;
 
 import org.springframework.stereotype.Service;
 
@@ -30,8 +28,7 @@ public class TodoServiceImpl implements TodoService{
 
     @Override
     public Todo update(Todo todo) {
-        // TODO Auto-generated method stub
-        return null;
+        return todoRepository.saveAndFlush(todo);
     }
     
 }
