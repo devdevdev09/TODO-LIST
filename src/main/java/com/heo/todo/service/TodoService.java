@@ -1,20 +1,20 @@
 package com.heo.todo.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.heo.todo.entity.Todo;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 
 public interface TodoService {
 
     public Optional<Todo> findById(Long id);
 
+    public List<Todo> findAll();
+
     public Todo save(Todo todo);
 
-    public Todo update(Todo todo);
+    public List<Todo> saveList(List<Todo> todoList);
+
     // ~ 03.31
     // 1. 초기 등록
         // 등록방법, 단순 한개씩, 여러개 동시, 업로드 등등?

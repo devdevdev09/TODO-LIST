@@ -1,5 +1,6 @@
 package com.heo.todo.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.heo.todo.entity.Todo;
@@ -22,13 +23,18 @@ public class TodoServiceImpl implements TodoService{
     }
 
     @Override
+    public List<Todo> findAll() {
+        return todoRepository.findAll();
+    }
+
+    @Override
     public Todo save(Todo todo) {
         return todoRepository.save(todo);
     }
 
     @Override
-    public Todo update(Todo todo) {
-        return todoRepository.saveAndFlush(todo);
+    public List<Todo> saveList(List<Todo> todoList) {
+        return todoRepository.saveAll(todoList);
     }
     
 }
