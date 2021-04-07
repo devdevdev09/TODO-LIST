@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.heo.todo.entity.Todo;
+import com.heo.todo.enums.Status;
 
 public interface TodoService {
 
@@ -14,6 +15,8 @@ public interface TodoService {
     public Todo save(Todo todo);
 
     public List<Todo> saveList(List<Todo> todoList);
+
+    public Todo updateStatus(Long id, Status status);
 
     // ~ 03.31
     // 1. 초기 등록

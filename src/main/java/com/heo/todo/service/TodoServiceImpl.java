@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.heo.todo.entity.Todo;
+import com.heo.todo.enums.Status;
 import com.heo.todo.repository.SpringDataJpaTodoRepository;
 
 import org.springframework.stereotype.Service;
@@ -35,6 +36,15 @@ public class TodoServiceImpl implements TodoService{
     @Override
     public List<Todo> saveList(List<Todo> todoList) {
         return todoRepository.saveAll(todoList);
+    }
+
+    @Override
+    public Todo updateStatus(Long id, Status status) {
+        Todo todo = new Todo();
+        todo.setId(id);
+        todo.setStatus(status.toString());
+        
+        return todoRepository.save(todo);
     }
     
 }
