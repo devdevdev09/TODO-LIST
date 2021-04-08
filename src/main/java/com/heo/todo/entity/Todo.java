@@ -1,5 +1,7 @@
 package com.heo.todo.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -17,11 +19,14 @@ public class Todo {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    // Date date;
 
     String name; // user
     String title;
     String subject;
     
     String status;
+
+    LocalDateTime finishDt;
+    LocalDateTime regDt;
+    LocalDateTime modDt;
 }

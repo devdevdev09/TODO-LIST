@@ -1,5 +1,6 @@
 package com.heo.todo.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,10 +52,24 @@ public class TodoServiceImpl implements TodoService{
     public Todo copy(Long id) {
         // id를 받아서 일감을 복사한다음 
         // 새로운 id로 일감 추가
+
+        // localdate time 되는지 with. jpa
         Todo copy = todoRepository.findById(id).orElse(null);
         copy.setId(null);
 
+        copy.setRegDt(LocalDateTime.now());
         Todo todo = todoRepository.save(copy);
+
+        return todo;
+    }
+
+    @Override
+    public Todo finish(Long id) {
+        Todo finish = findById(id).orElse(null);
+        finish.setFinishDt(LocalDateTime.now());
+        finish.setStatus(Status.COMPLETE_FINISH.getDesc());
+
+        Todo todo = todoRepository.save(finish);
 
         return todo;
     }
