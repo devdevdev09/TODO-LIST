@@ -46,5 +46,17 @@ public class TodoServiceImpl implements TodoService{
         
         return todoRepository.save(todo);
     }
+
+    @Override
+    public Todo copy(Long id) {
+        // id를 받아서 일감을 복사한다음 
+        // 새로운 id로 일감 추가
+        Todo copy = todoRepository.findById(id).orElse(null);
+        copy.setId(null);
+
+        Todo todo = todoRepository.save(copy);
+
+        return todo;
+    }
     
 }

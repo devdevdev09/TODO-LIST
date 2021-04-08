@@ -18,6 +18,8 @@ public interface TodoService {
 
     public Todo updateStatus(Long id, Status status);
 
+    public Todo copy(Long id);
+
     // ~ 03.31
     // 1. 초기 등록
         // 등록방법, 단순 한개씩, 여러개 동시, 업로드 등등?
