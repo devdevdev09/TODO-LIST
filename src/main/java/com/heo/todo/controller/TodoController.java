@@ -1,8 +1,10 @@
 package com.heo.todo.controller;
 
 import com.heo.todo.entity.Todo;
+import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,10 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TodoController {
     
-    TodoService todoService;
+    private final TodoService todoService;
+    private final MessageService messageService;
 
-    public TodoController(TodoService todoService){
+    public TodoController(TodoService todoService, MessageService messageService){
         this.todoService = todoService;
+        this.messageService = messageService;
     }
 
     @PostMapping("/todo")
@@ -26,6 +30,13 @@ public class TodoController {
     public Todo getTodo(Long id){
         Todo todo = todoService.findById(id).get();
         return todo;
+    }
+
+    @GetMapping("/send")
+    public boolean getSend(String msg){
+        boolean result = messageService.send(msg);
+
+        return result;
     }
 
     // @GetMapping("/test/insert")
