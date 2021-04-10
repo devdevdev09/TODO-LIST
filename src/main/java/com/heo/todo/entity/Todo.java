@@ -1,15 +1,11 @@
 package com.heo.todo.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.heo.todo.enums.Status;
 
 import lombok.Data;
 

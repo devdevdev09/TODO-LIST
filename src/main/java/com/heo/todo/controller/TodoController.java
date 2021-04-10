@@ -4,21 +4,18 @@ import com.heo.todo.entity.Todo;
 import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.RequiredArgsConstructor;
+
 @RestController
+@RequiredArgsConstructor
 public class TodoController {
     
     private final TodoService todoService;
     private final MessageService messageService;
-
-    public TodoController(TodoService todoService, MessageService messageService){
-        this.todoService = todoService;
-        this.messageService = messageService;
-    }
 
     @PostMapping("/todo")
     public Todo insertTodo(Todo todo){

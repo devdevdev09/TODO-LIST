@@ -10,14 +10,13 @@ import com.heo.todo.repository.SpringDataJpaTodoRepository;
 
 import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class TodoServiceImpl implements TodoService{
 
     SpringDataJpaTodoRepository todoRepository;
-
-    public TodoServiceImpl(SpringDataJpaTodoRepository todoRepository){
-        this.todoRepository = todoRepository;
-    }
 
     @Override
     public Optional<Todo> findById(Long id) {
