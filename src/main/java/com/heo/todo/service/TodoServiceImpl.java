@@ -42,7 +42,7 @@ public class TodoServiceImpl implements TodoService{
     public Todo updateStatus(Long id, Status status) {
         Todo todo = new Todo();
         todo.setId(id);
-        todo.setStatus(status.toString());
+        todo.setStatus(status);
         
         return todoRepository.save(todo);
     }
@@ -66,7 +66,7 @@ public class TodoServiceImpl implements TodoService{
     public Todo finish(Long id) {
         Todo finish = findById(id).orElse(null);
         finish.setFinishDt(LocalDateTime.now());
-        finish.setStatus(Status.COMPLETE_FINISH.getDesc());
+        finish.setStatus(Status.COMPLETE_FINISH);
 
         Todo todo = todoRepository.save(finish);
 
