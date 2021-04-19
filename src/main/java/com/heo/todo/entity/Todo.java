@@ -30,6 +30,7 @@ public class Todo {
 
     boolean isPublic; // 공개/비공개
 
+    // https://www.baeldung.com/jpa-java-time
     @Column(columnDefinition = "TIMESTAMP")
     LocalDateTime finishDt;
 
