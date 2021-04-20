@@ -12,6 +12,8 @@ import javax.persistence.Id;
 
 import com.heo.todo.enums.Status;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import lombok.Data;
 
 @Entity
@@ -28,15 +30,16 @@ public class Todo {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    boolean isPublic; // 공개/비공개
+    boolean ispublic; // 공개/비공개
 
     // https://www.baeldung.com/jpa-java-time
     @Column(columnDefinition = "TIMESTAMP")
-    LocalDateTime finishDt;
+    LocalDateTime finishdt;
+
+    @Column(name="regdt", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @CreationTimestamp
+    LocalDateTime regdt;
 
     @Column(columnDefinition = "TIMESTAMP")
-    LocalDateTime regDt;
-
-    @Column(columnDefinition = "TIMESTAMP")
-    LocalDateTime modDt;
+    LocalDateTime moddt;
 }

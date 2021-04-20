@@ -1,6 +1,9 @@
 package com.heo.todo.controller;
 
+import java.time.LocalDateTime;
+
 import com.heo.todo.entity.Todo;
+import com.heo.todo.enums.Status;
 import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
 
@@ -29,6 +32,22 @@ public class TodoController {
         return todo;
     }
 
+    Long id = 10L;
+    @GetMapping("/testinsert")
+    public Todo testTodo(){
+        Todo test = new Todo();
+        test.setName("testname");
+        test.setName("dae");
+        test.setTitle("cote");
+        test.setSubject("coding");
+        test.setStatus(Status.TODO);
+        test.setFinishdt(LocalDateTime.of(2021, 5, 20,22,10,00));
+        
+        Todo result = todoService.save(test);
+
+        return result;
+    }
+
     @GetMapping("/send")
     public boolean getSend(String msg){
         boolean result = messageService.send(msg);
@@ -36,16 +55,16 @@ public class TodoController {
         return result;
     }
 
-    // @GetMapping("/test/insert")
-    // public void getTest(){
-    //     Todo todo = new Todo();
-    //     todo.setName("test");
+    @GetMapping("/test/insert")
+    public void getTest(){
+        Todo todo = new Todo();
+        todo.setName("test");
 
-    //     Todo result = todoService.save(todo);
+        Todo result = todoService.save(todo);
 
-    //     System.out.println(todo);
-    //     System.out.println(result);
-    // }
+        System.out.println(todo);
+        System.out.println(result);
+    }
 
 
     // @GetMapping("/test/select")

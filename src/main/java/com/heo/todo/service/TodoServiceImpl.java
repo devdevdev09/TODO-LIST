@@ -16,7 +16,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TodoServiceImpl implements TodoService{
 
-    SpringDataJpaTodoRepository todoRepository;
+    private final SpringDataJpaTodoRepository todoRepository;
 
     @Override
     public Optional<Todo> findById(Long id) {
@@ -56,7 +56,7 @@ public class TodoServiceImpl implements TodoService{
         Todo copy = todoRepository.findById(id).orElse(null);
         copy.setId(null);
 
-        copy.setRegDt(LocalDateTime.now());
+        copy.setRegdt(LocalDateTime.now());
         Todo todo = todoRepository.save(copy);
 
         return todo;
@@ -65,7 +65,7 @@ public class TodoServiceImpl implements TodoService{
     @Override
     public Todo finish(Long id) {
         Todo finish = findById(id).orElse(null);
-        finish.setFinishDt(LocalDateTime.now());
+        finish.setFinishdt(LocalDateTime.now());
         finish.setStatus(Status.COMPLETE_FINISH);
 
         Todo todo = todoRepository.save(finish);
