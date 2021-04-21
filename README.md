@@ -2,6 +2,12 @@
 
 ## 일정 관리
 
+### 2021-04-21
+- insert, update 추가
+- http method 맞게 수정하기
+### 2021-03-18
+- vscode lombok 미적용
+    - lombok extensions 설치 필요함
 ----
 - TDD,DDD
 - RESTFUL
@@ -30,6 +36,3 @@
 - 테스트 작성
 - DOCS 작성
 
-### 2021-03-18
-- vscode lombok 미적용
-    - lombok extensions 설치 필요함

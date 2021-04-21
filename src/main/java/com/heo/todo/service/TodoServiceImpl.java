@@ -30,6 +30,8 @@ public class TodoServiceImpl implements TodoService{
 
     @Override
     public Todo save(Todo todo) {
+        todo.setRegdt(LocalDateTime.now());
+
         return todoRepository.save(todo);
     }
 
@@ -40,8 +42,10 @@ public class TodoServiceImpl implements TodoService{
 
     @Override
     public Todo updateStatus(Long id, Status status) {
-        Todo todo = new Todo();
+        Todo todo = todoRepository.findById(id).orElseGet(Todo::new);
+        
         todo.setId(id);
+        todo.setModdt(LocalDateTime.now());
         todo.setStatus(status);
         
         return todoRepository.save(todo);

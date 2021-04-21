@@ -1,7 +1,5 @@
 package com.heo.todo.repository;
 
-import java.util.Optional;
-
 import com.heo.todo.entity.Todo;
 
 import org.springframework.data.jpa.repository.JpaRepository;

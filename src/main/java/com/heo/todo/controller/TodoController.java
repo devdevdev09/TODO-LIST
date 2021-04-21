@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
+import com.heo.todo.enums.Title;
+import com.heo.todo.enums.Type;
 import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
 
@@ -34,16 +36,23 @@ public class TodoController {
 
     Long id = 10L;
     @GetMapping("/testinsert")
-    public Todo testTodo(){
+    public Todo testTodo(String name){
         Todo test = new Todo();
-        test.setName("testname");
-        test.setName("dae");
-        test.setTitle("cote");
-        test.setSubject("coding");
+
+        test.setName(name);
+        test.setTitle(Title.CODING);
+        test.setType(Type.DAILY);
         test.setStatus(Status.TODO);
         test.setFinishdt(LocalDateTime.of(2021, 5, 20,22,10,00));
         
         Todo result = todoService.save(test);
+
+        return result;
+    }
+
+    @GetMapping("/testupdate")
+    public Todo testUpdate(Long id, Status status){
+        Todo result = todoService.updateStatus(id, status);
 
         return result;
     }

@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.heo.todo.enums.Status;
+import com.heo.todo.enums.Title;
+import com.heo.todo.enums.Type;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -24,9 +26,10 @@ public class Todo {
     Long id;
 
     String name; // user
-    String title;
-    String subject;
-    
+    @Enumerated(EnumType.STRING)
+    Title title;
+    @Enumerated(EnumType.STRING)
+    Type type;
     @Enumerated(EnumType.STRING)
     private Status status;
 
@@ -35,11 +38,15 @@ public class Todo {
     // https://www.baeldung.com/jpa-java-time
     @Column(columnDefinition = "TIMESTAMP")
     LocalDateTime finishdt;
-
-    @Column(name="regdt", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    @CreationTimestamp
+    
+    @Column(columnDefinition = "TIMESTAMP")
     LocalDateTime regdt;
 
     @Column(columnDefinition = "TIMESTAMP")
     LocalDateTime moddt;
+
+    // 기타 잡담 및 설명
+    String desc;
+
+    
 }
