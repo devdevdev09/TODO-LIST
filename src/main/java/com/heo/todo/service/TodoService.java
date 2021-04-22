@@ -5,10 +5,15 @@ import java.util.Optional;
 
 import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
+import com.heo.todo.enums.Type;
 
 public interface TodoService {
 
     public Optional<Todo> findById(Long id);
+
+    public List<Todo> findByName(String name);
+
+    public List<Todo> findByType(Type type);
 
     public List<Todo> findAll();
 

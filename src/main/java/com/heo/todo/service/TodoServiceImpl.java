@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
+import com.heo.todo.enums.Type;
 import com.heo.todo.repository.SpringDataJpaTodoRepository;
 
 import org.springframework.stereotype.Service;
@@ -75,6 +76,16 @@ public class TodoServiceImpl implements TodoService{
         Todo todo = todoRepository.save(finish);
 
         return todo;
+    }
+
+    @Override
+    public List<Todo> findByName(String name) {
+        return todoRepository.findByName(name);
+    }
+
+    @Override
+    public List<Todo> findByType(Type type) {
+        return todoRepository.findByType(type);
     }
     
 }

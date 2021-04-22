@@ -1,6 +1,7 @@
 package com.heo.todo.controller;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
@@ -10,6 +11,7 @@ import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,6 +27,18 @@ public class TodoController {
     @GetMapping("/todo")
     public Todo getTodoById(Long id){
         Todo todo = todoService.findById(id).get();
+        return todo;
+    }
+
+    @GetMapping("/todo/{name}/name")
+    public List<Todo> getTodoByName(@PathVariable String name){
+        List<Todo> todo = todoService.findByName(name);
+        return todo;
+    }
+
+    @GetMapping("/todo/{type}/type")
+    public List<Todo> getTodoByType(@PathVariable Type type){
+        List<Todo> todo = todoService.findByType(type);
         return todo;
     }
 
