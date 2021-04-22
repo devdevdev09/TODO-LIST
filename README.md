@@ -2,12 +2,15 @@
 
 ## 일정 관리
 
+### 2021-04-22
+- repository test 추가
+- findBy{COLUMN} 추가
 ### 2021-04-21
 - insert, update 추가
 - http method 맞게 수정하기
 ### 2021-03-18
 - vscode lombok 미적용
-    - lombok extensions 설치 필요함
+    - lombok extensions 설치 필요함    
 ----
 - TDD,DDD
 - RESTFUL
