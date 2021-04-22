@@ -33,7 +33,7 @@ public class Todo {
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    boolean ispublic; // 공개/비공개
+    Boolean ispublic; // 공개/비공개
 
     // https://www.baeldung.com/jpa-java-time
     @Column(columnDefinition = "TIMESTAMP")

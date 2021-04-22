@@ -1,38 +1,43 @@
-// package com.heo.todo.repository;
+package com.heo.todo.repository;
 
-// import javax.persistence.EntityManager;
+import javax.persistence.EntityManager;
 
-// import com.heo.todo.entity.Todo;
+import com.heo.todo.entity.Todo;
+import com.heo.todo.enums.Status;
+import com.heo.todo.enums.Title;
+import com.heo.todo.enums.Type;
+import com.heo.todo.service.TodoService;
 
-// import org.junit.jupiter.api.Test;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-// import org.springframework.transaction.annotation.Transactional;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
-// import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
-// @DataJpaTest
-// @Transactional
-// public class JpaTodoRepositoryTest {
+@SpringBootTest
+@Transactional
+public class JpaTodoRepositoryTest {
 
+    @Autowired SpringDataJpaTodoRepository todoRepository;
 
-//     @Autowired
-//     SpringDataJpaTodoRepository repository;
+    @Test
+    public void save(){
+        Todo todo = new Todo();
+        Long id = 1L;
 
-//     //Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TODO" not found; SQL statement:
-//     @Test
-//     public void save(){
-//         Todo todo = new Todo();
-//         todo.setId(1L);
-//         todo.setName("tesssssss");
-//         todo.setTitle("tetet");
-//         todo.setSubject("ddddddddd");
-//         todo.setStatus("22222");
-     
-//         repository.save(todo);
-
-//         Todo result = repository.findById(1L).get();
-//         assertThat(todo).isEqualTo(result);
-//     }
+        todo.setId(id);
+        todo.setName("testuser");
+        todo.setType(Type.DAILY);
+        todo.setTitle(Title.ETC);
+        todo.setStatus(Status.TODO);
+        todo.setIspublic(true);
         
-// }
+        Todo save = todoRepository.save(todo);
+        Todo result = todoRepository.findById(id).get();
+
+        assertThat(save).isEqualTo(result);
+    }
+        
+}
