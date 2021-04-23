@@ -2,6 +2,9 @@
 
 ## 일정 관리
 
+### TODO
+- HISTORY 테이블 만들기
+
 ### 2021-04-22
 - repository test 추가
 - findBy{COLUMN} 추가
