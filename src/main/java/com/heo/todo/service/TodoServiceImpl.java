@@ -17,7 +17,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TodoServiceImpl implements TodoService{
 
-    private final SpringDataJpaTodoRepository todoRepository;
 
     @Override
     public Optional<Todo> findById(Long id) {

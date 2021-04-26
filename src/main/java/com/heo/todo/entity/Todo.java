@@ -14,8 +14,6 @@ import com.heo.todo.enums.Status;
 import com.heo.todo.enums.Title;
 import com.heo.todo.enums.Type;
 
-import org.hibernate.annotations.CreationTimestamp;
-
 import lombok.Data;
 
 @Entity

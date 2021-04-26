@@ -1,7 +1,6 @@
 package com.heo.todo.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
