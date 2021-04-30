@@ -6,7 +6,7 @@ import java.util.List;
 import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
 import com.heo.todo.enums.Title;
-import java.util.*;
+import com.heo.todo.enums.Type;
 import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
 
