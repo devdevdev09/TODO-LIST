@@ -1,4 +1,4 @@
-package com.heo.todo.service;
+package com.heo.todo.serviceimpl;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

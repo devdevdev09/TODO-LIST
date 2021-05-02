@@ -7,8 +7,8 @@ import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
 import com.heo.todo.enums.Title;
 import com.heo.todo.enums.Type;
-import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
+import com.heo.todo.serviceimpl.MessageService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

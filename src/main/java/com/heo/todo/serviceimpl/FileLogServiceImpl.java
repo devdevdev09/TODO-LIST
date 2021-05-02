@@ -1,4 +1,6 @@
-package com.heo.todo.service;
+package com.heo.todo.serviceimpl;
+
+import com.heo.todo.service.LogService;
 
 import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
