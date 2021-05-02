@@ -1,4 +1,4 @@
-package com.heo.todo.serviceimpl;
+package com.heo.todo.service;
 
 public interface MessageService {
     public boolean send(String msg);   
