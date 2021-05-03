@@ -10,6 +10,7 @@ import com.heo.todo.enums.Type;
 import com.heo.todo.service.CheckService;
 import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
+import com.heo.todo.serviceimpl.CodingCheck;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -90,10 +91,19 @@ public class TodoController {
         System.out.println(result);
     }
 
-    @Autowired
-    CheckService titleCheck;
+    
 
-    public void getCodingCheck(){
-        titleCheck.actionCheck();        
+    public void getDailyCheck(){
+        CheckService titleCheck;
+
+        List<Todo> todoList = todoService.findByType(Type.DAILY);
+
+        for(Todo todo : todoList){
+            if(todo.getTitle() == Title.CODING){
+                titleCheck = new CodingCheck(todo.getStatus());
+                titleCheck.actionCheck();
+                titleCheck.changeStatus();
+            }
+        }
     }
 }
