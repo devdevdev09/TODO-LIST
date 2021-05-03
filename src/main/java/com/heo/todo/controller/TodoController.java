@@ -7,9 +7,11 @@ import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
 import com.heo.todo.enums.Title;
 import com.heo.todo.enums.Type;
+import com.heo.todo.service.CheckService;
+import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
-import com.heo.todo.serviceimpl.MessageService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -86,5 +88,12 @@ public class TodoController {
 
         System.out.println(todo);
         System.out.println(result);
+    }
+
+    @Autowired
+    CheckService titleCheck;
+
+    public void getCodingCheck(){
+        titleCheck.actionCheck();        
     }
 }

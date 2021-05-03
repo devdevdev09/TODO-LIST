@@ -1,4 +1,4 @@
-package com.heo.todo.service;
+package com.heo.todo.serviceimpl;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -8,6 +8,7 @@ import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
 import com.heo.todo.enums.Type;
 import com.heo.todo.repository.SpringDataJpaTodoRepository;
+import com.heo.todo.service.TodoService;
 
 import org.springframework.stereotype.Service;
 
