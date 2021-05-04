@@ -2,6 +2,7 @@ package com.heo.todo.controller;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Stream;
 
 import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
@@ -90,8 +91,6 @@ public class TodoController {
         System.out.println(todo);
         System.out.println(result);
     }
-
-    
 
     public void getDailyCheck(){
         CheckService titleCheck;
