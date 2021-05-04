@@ -12,6 +12,7 @@ import com.heo.todo.service.CheckService;
 import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
 import com.heo.todo.serviceimpl.CodingCheck;
+import com.heo.todo.serviceimpl.ReadingCheck;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -91,18 +92,22 @@ public class TodoController {
         System.out.println(todo);
         System.out.println(result);
     }
+    
+    
+    CheckService titleCheck;
 
     public void getDailyCheck(){
-        CheckService titleCheck;
+        
 
         List<Todo> todoList = todoService.findByType(Type.DAILY);
 
         for(Todo todo : todoList){
-            if(todo.getTitle() == Title.CODING){
-                titleCheck = new CodingCheck(todo.getStatus());
-                titleCheck.actionCheck();
-                titleCheck.changeStatus();
-            }
+            if(todo.getTitle() == Title.CODING) titleCheck = new CodingCheck();
+            if(todo.getTitle() == Title.READING) titleCheck = new ReadingCheck();
+
+            titleCheck.actionCheck();
+            titleCheck.changeStatus();
         }
+        
     }
 }

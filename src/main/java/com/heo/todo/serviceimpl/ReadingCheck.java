@@ -3,22 +3,18 @@ package com.heo.todo.serviceimpl;
 import com.heo.todo.enums.Status;
 import com.heo.todo.service.CheckService;
 
-public class CodingCheck implements CheckService{
-
-    private Status status;
-    private boolean result;
+public class ReadingCheck implements CheckService{
 
     @Override
     public boolean actionCheck() {
-        // call commit counter;
-        // check => result
+        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public Status changeStatus() {
         // TODO Auto-generated method stub
-        // action -> change status
         return null;
     }
+    
 }
