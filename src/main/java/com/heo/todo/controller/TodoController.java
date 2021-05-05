@@ -8,11 +8,12 @@ import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
 import com.heo.todo.enums.Title;
 import com.heo.todo.enums.Type;
+import com.heo.todo.service.ActionSerivce;
 import com.heo.todo.service.CheckService;
 import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
-import com.heo.todo.serviceimpl.CodingCheck;
-import com.heo.todo.serviceimpl.ReadingCheck;
+import com.heo.todo.serviceimpl.check.CodingCheck;
+import com.heo.todo.serviceimpl.check.ReadingCheck;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -97,17 +98,27 @@ public class TodoController {
     CheckService titleCheck;
 
     public void getDailyCheck(){
-        
+        ActionSerivce actionSerivce = null;
 
         List<Todo> todoList = todoService.findByType(Type.DAILY);
 
         for(Todo todo : todoList){
-            if(todo.getTitle() == Title.CODING) titleCheck = new CodingCheck();
-            if(todo.getTitle() == Title.READING) titleCheck = new ReadingCheck();
+            actionSerivce = getActionSerive(todo.getTitle());
 
-            titleCheck.actionCheck();
-            titleCheck.changeStatus();
+            titleCheck.actionCheck(actionSerivce);
         }
         
+    }
+
+    public ActionSerivce getActionSerive(Title title){
+        ActionSerivce actionSerivce = null;
+
+        if(title == Title.CODING) {
+            actionSerivce = new CodingCheck();
+        }else if(title == Title.READING) {
+            actionSerivce = new ReadingCheck();
+        }
+
+        return actionSerivce;
     }
 }

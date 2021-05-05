@@ -4,7 +4,7 @@ import com.heo.todo.enums.Status;
 
 public interface CheckService {
     
-    public boolean actionCheck();
+    public boolean actionCheck(ActionSerivce actionSerivce);
 
     public Status changeStatus();
 }
