@@ -1,16 +1,14 @@
-package com.heo.todo.serviceimpl.check;
+package com.heo.todo.serviceimpl.action;
 
 import com.heo.todo.enums.Status;
 import com.heo.todo.service.ActionSerivce;
 
-public class CodingCheck implements ActionSerivce{
-
-    private Status status;
-    private boolean result;
+public class ReadingAction implements ActionSerivce{
 
     @Override
     public Status updateAction() {
         // TODO Auto-generated method stub
         return null;
     }
+    
 }
