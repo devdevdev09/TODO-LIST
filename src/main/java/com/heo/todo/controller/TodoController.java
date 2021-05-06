@@ -2,18 +2,13 @@ package com.heo.todo.controller;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Stream;
 
 import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
 import com.heo.todo.enums.Title;
 import com.heo.todo.enums.Type;
-import com.heo.todo.service.ActionSerivce;
-import com.heo.todo.service.CheckService;
 import com.heo.todo.service.MessageService;
 import com.heo.todo.service.TodoService;
-import com.heo.todo.serviceimpl.action.CodingAction;
-import com.heo.todo.serviceimpl.action.ReadingAction;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +23,6 @@ public class TodoController {
     
     private final TodoService todoService;
     private final MessageService messageService;
-    private final CheckService titleCheck;
 
     @GetMapping("/todo")
     public Todo getTodoById(Long id){
@@ -92,27 +86,5 @@ public class TodoController {
 
         System.out.println(todo);
         System.out.println(result);
-    }
-
-    public void getDailyCheck(){
-        List<Todo> todoList = todoService.findByType(Type.DAILY);
-
-        for(Todo todo : todoList){
-            ActionSerivce actionSerivce = getActionSerive(todo.getTitle());
-
-            titleCheck.actionCheck(actionSerivce);
-        }
-    }
-
-    public ActionSerivce getActionSerive(Title title){
-        ActionSerivce actionSerivce = null;
-
-        if(title == Title.CODING) {
-            actionSerivce = new CodingAction();
-        }else if(title == Title.READING) {
-            actionSerivce = new ReadingAction();
-        }
-
-        return actionSerivce;
     }
 }
