@@ -11,7 +11,8 @@ public class CheckServiceImpl implements CheckService {
 
     @Override
     public boolean actionCheck(ActionSerivce actionSerivce) {
-        // TODO Auto-generated method stub
+        Status status = actionSerivce.updateAction();
+        // return status or boolean?
         return false;
     }
 

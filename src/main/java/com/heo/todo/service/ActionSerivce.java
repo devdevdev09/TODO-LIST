@@ -1,5 +1,6 @@
 package com.heo.todo.service;
 
+import com.heo.todo.entity.Todo;
 import com.heo.todo.enums.Status;
 
 public interface ActionSerivce {

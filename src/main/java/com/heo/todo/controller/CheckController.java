@@ -27,19 +27,21 @@ public class CheckController {
         List<Todo> todoList = todoService.findByType(type);
 
         for(Todo todo : todoList){
-            ActionSerivce actionSerivce = getActionSerive(todo.getTitle());
+            ActionSerivce actionSerivce = getActionSerive(todo);
+            
 
             checkService.actionCheck(actionSerivce);
         }
     }
 
-    public ActionSerivce getActionSerive(Title title){
+    public ActionSerivce getActionSerive(Todo todo){
         ActionSerivce actionSerivce = null;
+        Title title = todo.getTitle();
 
         if(title == Title.CODING) {
-            actionSerivce = new CodingAction();
+            actionSerivce = new CodingAction(todo);
         }else if(title == Title.READING) {
-            actionSerivce = new ReadingAction();
+            actionSerivce = new ReadingAction(todo);
         }
 
         return actionSerivce;
